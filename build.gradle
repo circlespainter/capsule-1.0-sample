@@ -40,3 +40,16 @@ task fatCapsule(type: FatCapsule) {
 		javaAgents = [configurations.quasar.iterator().next().getName()]
 	}
 }
+
+// Not working
+/*
+task thinCapsule(type: MavenCapsule) {
+	applicationClass "co.paralleluniverse.QuasarApp"
+
+	// reallyExecutable // Not working
+
+	capsuleManifest {
+		javaAgents = [configurations.quasar.iterator().next().getName()]
+	}
+}
+*/
