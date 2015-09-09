@@ -1,0 +1,42 @@
+// Capsule plugin
+plugins {
+	id "us.kirchmeier.capsule" version "1.0-rc1"
+}
+
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+version = '1.0'
+
+[compileJava, compileTestJava]*.options*.encoding = "UTF-8"
+
+repositories {
+	mavenLocal()
+	mavenCentral()
+}
+
+configurations {
+	quasar
+}
+
+configurations.capsule.dependencies.clear()
+
+dependencies {
+	compile 'co.paralleluniverse:quasar-core:0.7.3:jdk8'
+
+	quasar 'co.paralleluniverse:quasar-core:0.7.3:jdk8'
+
+	capsule 'co.paralleluniverse:capsule:1.0-rc2-SNAPSHOT'
+}
+
+task fatCapsule(type: FatCapsule) {
+	applicationClass "co.paralleluniverse.QuasarApp"
+
+	// reallyExecutable // Not working
+
+	capsuleManifest {
+		javaAgents = [configurations.quasar.iterator().next().getName()]
+	}
+}
