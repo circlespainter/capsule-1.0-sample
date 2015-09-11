@@ -35,7 +35,7 @@ dependencies {
 task fatCapsule(type: FatCapsule) {
 	applicationClass "co.paralleluniverse.QuasarApp"
 
-	reallyExecutable // Not working
+	reallyExecutable { trampoline() } // Not working
 
 	capsuleManifest {
 		javaAgents = [configurations.quasar.iterator().next().getName()]
@@ -47,7 +47,7 @@ task fatCapsule(type: FatCapsule) {
 task thinCapsule(type: MavenCapsule) {
 	applicationClass "co.paralleluniverse.QuasarApp"
 
-	 reallyExecutable // Not working
+	reallyExecutable // Not working
 
 	capsuleManifest {
 		javaAgents = [configurations.quasar.iterator().next().getName()]
