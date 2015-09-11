@@ -53,7 +53,8 @@
             <configuration>
               <appClass>${groupId}.QuasarApp</appClass>
               <chmod>true</chmod>
-              <types>fat</types> <!-- thin not working -->
+              <types>fat thin empty</types> <!-- thin and empty not working -->
+              <trampoline>true</trampoline> <!-- not as in Capsule -->
               <manifest>
                 <entry>
                   <key>Premain-Class</key>
