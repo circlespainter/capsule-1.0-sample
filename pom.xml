@@ -15,8 +15,8 @@
 
     <java.version>1.8</java.version>
     <quasar.version>0.7.3</quasar.version>
-    <capsule.version>1.0-rc2-SNAPSHOT</capsule.version>
-    <capsule.maven.plugin.version>0.10.6</capsule.maven.plugin.version>
+    <capsule.version>1.0</capsule.version>
+    <capsule.maven.plugin.version>0.10.7-SNAPSHOT</capsule.maven.plugin.version>
     <compiler.plugin.version>3.3</compiler.plugin.version>
   </properties>
 
