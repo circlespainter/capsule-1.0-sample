@@ -28,13 +28,14 @@ dependencies {
 
 	quasar 'co.paralleluniverse:quasar-core:0.7.3:jdk8'
 
-	capsule 'co.paralleluniverse:capsule:1.0-rc2-SNAPSHOT'
+	capsule 'co.paralleluniverse:capsule:1.0'
+	// capsule 'co.paralleluniverse:capsule-maven:1.0'
 }
 
 task fatCapsule(type: FatCapsule) {
 	applicationClass "co.paralleluniverse.QuasarApp"
 
-	// reallyExecutable // Not working
+	reallyExecutable // Not working
 
 	capsuleManifest {
 		javaAgents = [configurations.quasar.iterator().next().getName()]
@@ -42,14 +43,13 @@ task fatCapsule(type: FatCapsule) {
 }
 
 // Not working
-/*
+
 task thinCapsule(type: MavenCapsule) {
 	applicationClass "co.paralleluniverse.QuasarApp"
 
-	// reallyExecutable // Not working
+	 reallyExecutable // Not working
 
 	capsuleManifest {
 		javaAgents = [configurations.quasar.iterator().next().getName()]
 	}
 }
-*/
