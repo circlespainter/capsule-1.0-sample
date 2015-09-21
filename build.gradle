@@ -1,6 +1,5 @@
-// Capsule plugin
 plugins {
-	id "us.kirchmeier.capsule" version "1.0-rc1"
+	id "us.kirchmeier.capsule" version "1.0.0"
 }
 
 apply plugin: 'java'
@@ -29,27 +28,24 @@ dependencies {
 	quasar 'co.paralleluniverse:quasar-core:0.7.3:jdk8'
 
 	capsule 'co.paralleluniverse:capsule:1.0'
-	// capsule 'co.paralleluniverse:capsule-maven:1.0'
 }
 
 task fatCapsule(type: FatCapsule) {
 	applicationClass "co.paralleluniverse.QuasarApp"
 
-	reallyExecutable { trampoline() } // Not working
+	reallyExecutable { trampoline() }
 
 	capsuleManifest {
 		javaAgents = [configurations.quasar.iterator().next().getName()]
 	}
 }
 
-// Not working
-
 task thinCapsule(type: MavenCapsule) {
 	applicationClass "co.paralleluniverse.QuasarApp"
 
-	reallyExecutable // Not working
+	reallyExecutable
 
 	capsuleManifest {
-		javaAgents = [configurations.quasar.iterator().next().getName()]
+		javaAgents = ['co.paralleluniverse:quasar-core:0.7.3:jdk8']
 	}
 }
